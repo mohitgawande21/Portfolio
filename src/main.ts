@@ -1,16 +1,23 @@
 import './style.css'
 
 const projects = [
-  { title: 'Komax Digital Platform', type: 'Professional case study · Private', description: 'Enterprise-grade, multilingual product experiences built with Vue.js, TypeScript, GraphQL, and Hygraph CMS.', tags: ['Vue.js', 'TypeScript', 'GraphQL'], tone: 'atlas', number: '01', href: '#about', external: false, label: 'Professional case study' },
-  { title: 'Canada Money Transfer', type: 'Professional case study · Private', description: 'Secure customer journeys for KYC, recipient management, bank transfers, cards, and cash pickup at Western Union.', tags: ['React', 'React Native', 'Next.js'], tone: 'lumen', number: '02', href: '#about', external: false, label: 'Professional case study' },
+  { title: 'Komax Digital Platform', type: 'Professional case study · Private', description: 'Enterprise-grade, multilingual product experiences built with Vue.js, TypeScript, GraphQL, and Hygraph CMS.', tags: ['Vue.js', 'TypeScript', 'GraphQL'], tone: 'atlas', number: '01', href: 'https://www.komaxgroup.com/en-in', external: true, label: 'Visit Komax' },
+  { title: 'Canada Money Transfer', type: 'Professional case study · Private', description: 'Secure customer journeys for KYC, recipient management, bank transfers, cards, and cash pickup at Western Union.', tags: ['React', 'React Native', 'Next.js'], tone: 'lumen', number: '02', href: 'https://www.westernunion.com/in/en/home.html', external: true, label: 'Visit Western Union' },
   { title: 'Weather App', type: 'Personal project · Public', description: 'A live weather experience for quickly finding current conditions in a clean, responsive interface.', tags: ['JavaScript', 'REST API', 'Responsive UI'], tone: 'field', number: '03', href: 'https://github.com/mohitgawande21/Weather-App', external: true, label: 'View GitHub' },
   { title: 'Employee Management App', type: 'Personal project · Public', description: 'An employee information management app focused on practical workflows and clear data presentation.', tags: ['JavaScript', 'CRUD', 'Frontend'], tone: 'atlas', number: '04', href: 'https://github.com/mohitgawande21/Empolyee-Mangament-App', external: true, label: 'View GitHub' },
+]
+
+const experience = [
+  { period: 'Mar 2026 — Present', company: 'Komax Group', role: 'Senior Frontend Engineer', detail: 'Building enterprise solutions for the Komax Digital Platform with Vue.js, TypeScript, GraphQL, and Hygraph CMS.' },
+  { period: 'Apr 2023 — Feb 2026', company: 'Western Union', role: 'Frontend Engineer', detail: 'Delivered secure international money transfer journeys across React, Next.js, React Native, TypeScript, GraphQL, and a shared design system.' },
+  { period: 'May 2022 — Apr 2023', company: 'Globant', role: 'Web UI Developer', detail: 'Created reusable document annotation, highlighting, search, and audit workflows with React, Redux, and REST APIs.' },
+  { period: 'Oct 2019 — Mar 2022', company: 'HCL Technologies', role: 'Frontend Developer', detail: 'Developed responsive employee attendance and time management products with React, JavaScript, HTML5, CSS3, and REST APIs.' },
 ]
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Back to top"><span class="mark">M</span> Mohit Gawande</a>
-    <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
     <a class="header-resume" href="/Mohit-Gawande-CV.pdf" download>Resume <span aria-hidden="true">↗</span></a>
   </header>
 
@@ -23,6 +30,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <section class="ticker" aria-label="Capabilities"><div>REACT & NEXT.JS</div><span>+</span><div>VUE & NUXT.JS</div><span>+</span><div>PERFORMANCE</div><span>+</span><div>FRONTEND ARCHITECTURE</div></section>
 
     <section id="work" class="section-wrap work-section"><div class="section-heading"><div><p class="eyebrow">Selected work / 2019—present</p><h2>Work with a point of view.</h2></div><p class="section-note">Professional case studies are described at a high level for confidentiality. Personal projects link directly to public source code.</p></div><div class="project-grid">${projects.map((project) => `<article class="project-card reveal"><a href="${project.href}" ${project.external ? 'target="_blank" rel="noreferrer"' : ''} class="project-link"><div class="project-visual ${project.tone}"><span class="project-number">${project.number}</span><div class="visual-window"><i></i><i></i><i></i><div class="visual-lines"></div></div><span class="view-project">${project.label} ↗</span></div><div class="project-meta"><div><p class="project-type">${project.type}</p><h3>${project.title}</h3></div><p class="project-description">${project.description}</p></div><div class="tag-list">${project.tags.map((tag) => `<span>${tag}</span>`).join('')}</div></a></article>`).join('')}</div><div class="github-bar"><span>More personal experiments and source code</span><a class="text-link" href="https://github.com/mohitgawande21" target="_blank" rel="noreferrer">Visit GitHub <span>↗</span></a></div></section>
+
+    <section id="experience" class="experience-section section-wrap"><div class="section-heading"><div><p class="eyebrow">Experience / 6.5+ years</p><h2>The path so far.</h2></div><p class="section-note">Frontend engineering across manufacturing, FinTech, enterprise SaaS, and applied AI research.</p></div><div class="experience-list">${experience.map((item) => `<article class="experience-item reveal"><p class="experience-period">${item.period}</p><div><p class="project-type">${item.company}</p><h3>${item.role}</h3><p class="experience-detail">${item.detail}</p></div></article>`).join('')}</div><div class="publication"><p class="eyebrow">Research & publication</p><h3>Face Aging using CycleGAN</h3><p>Published at IEEE ICIIS 2018, Indian Institute of Technology, Ropar. Research focused on image-to-image translation, age progression, and identity preservation.</p></div></section>
 
     <section id="about" class="about-section"><div class="section-wrap about-layout"><div><p class="eyebrow">A little context</p><h2>Technical depth.<br><em>Human clarity.</em></h2></div><div class="about-copy"><p class="large-copy">I build maintainable frontend systems for products people rely on, from international money transfers to global manufacturing platforms.</p><p>My work spans architecture, state management, authentication, accessibility, Core Web Vitals, observability, and the collaboration needed to take a feature from a question to production.</p><div class="skills"><span>01 / React + Next.js</span><span>02 / Vue.js + Nuxt.js</span><span>03 / TypeScript</span><span>04 / GraphQL + REST</span></div></div></div></section>
 
